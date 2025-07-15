@@ -25,7 +25,7 @@ export default function Home() {
 					</div>
 					<ContainerScroll titleComponent>
 						<Image
-							src={"/chess-board-svgrepo-com.svg"}
+							src="/chess-board.svg"
 							alt="ChessboardImage"
 							width={600}
 							height={600}
