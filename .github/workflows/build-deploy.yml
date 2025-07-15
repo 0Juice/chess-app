@@ -21,13 +21,11 @@ jobs:
     - name: Build and Push Docker image
       uses: docker/build-push-action@v2
       with:
-        context: .
-        file: ./Dockerfile
         push: true
-        tags: Ojuice/chess-app:latest
+        tags: 0juice/chess-app:latest
 
     - name: Verify Pushed Image
-      run: docker pull Ojuice/chess-app:latest
+      run: docker pull 0juice/chess-app:latest
 
     - name: Deploy to EC2
       uses: appleboy/ssh-action@master
@@ -36,7 +34,7 @@ jobs:
         username: ${{ secrets.SSH_USERNAME }}
         key: ${{ secrets.SSH_KEY }}
         script: |
-          sudo docker pull Ojuice/chess-app:latest
+          sudo docker pull 0juice/chess-app:latest
           sudo docker stop chess-app || true
           sudo docker rm chess-app || true
-          sudo docker run -d --name chess-app -p 3005:3000 Ojuice/chess-app:latest
+          sudo docker run -d --name chess-app -p 3005:3000 0juice/chess-app:latest
