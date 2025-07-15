@@ -6,7 +6,7 @@ import Image from "next/image";
 
 export default function Home() {
 	return (
-		<div className="bg-background w-screen h-screen">
+		<div className="bg-background min-h-screen">
 			<Navbar />
 			<main className="flex flex-col justify-center m-8 gap-16 bg-background">
 				<Hero />
